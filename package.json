@@ -1,0 +1,24 @@
+{
+  "name": "haunted-task",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "dependencies": {
+    "haunted": "^5.0.0",
+    "live-server": "^1.2.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Solpaw/Haunted-task.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Solpaw/Haunted-task/issues"
+  },
+  "homepage": "https://github.com/Solpaw/Haunted-task#readme"
+}
