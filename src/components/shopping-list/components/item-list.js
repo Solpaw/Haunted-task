@@ -2,26 +2,27 @@ import {
     html,
     component,
     useMemo,
+    useCallback
 } from 'https://esm.sh/haunted';
 
 function ItemList({ data, selectedList }) {
-    const addItem = (data) => {
+    const addItem = useCallback((data) => {
         const event = new CustomEvent('add-item', {
           bubbles: true,
           composed: true,
           detail: data
         });
         this.dispatchEvent(event);
-    }
+    }, [])
 
-    const removeItem = (data) => {
+    const removeItem = useCallback((data) => {
         const event = new CustomEvent('remove-item', {
           bubbles: true,
           composed: true,
           detail: data
         });
         this.dispatchEvent(event);
-    }
+    }, [])
 
     const list = useMemo(() => data?.map((ele) => html`
         <div class="container">

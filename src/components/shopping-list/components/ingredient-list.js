@@ -1,6 +1,7 @@
 import {
     html,
     component,
+    useCallback,
     useMemo,
 } from 'https://esm.sh/haunted';
 
@@ -19,6 +20,15 @@ function IngredientList({ data, selectedList }) {
         return ingredientSet;
     }, [data, selectedList])
 
+    const print = useCallback(() => {
+        const printList = window.open('', 'PRINT', 'height=500,width=700');
+        printList.document.write(`<html><head><title>${document.title}</title></head><body>`);
+        printList.document.write(this.shadowRoot.getElementById('ingredient-list').innerHTML);
+        printList.document.write('</body></html>');
+        printList.print();
+        printList.close();
+    }, [])
+
     const list = useMemo(() => {
         return html`
             <ul>
@@ -31,9 +41,11 @@ function IngredientList({ data, selectedList }) {
 
     return html`
         <div class="container">
-            <h3>Shopping list</h3>
-            ${list}
-            <button>Print list</button>
+            <div id="ingredient-list">
+                <h3>Shopping list</h3>
+                ${list}
+            </div>
+            <button @click=${print}>Print list</button>
         </div>
 
         <style>

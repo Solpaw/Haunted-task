@@ -4,20 +4,23 @@ import {
     useState,
     useCallback,
 } from 'https://esm.sh/haunted';
+import { showToaster } from '../../toaster/toaster.js';
 
 function Searchbar() {
     const [searchTerm, setSearchTerm] = useState('');
 
-    const changeData = (data) => {
+    const changeData = useCallback((data) => {
         const event = new CustomEvent('data-change', {
           bubbles: true,
           composed: true,
           detail: data
         });
         this.dispatchEvent(event);
-      }
+        data.drinks?.length ? showToaster(this, 'Here are the results.') : showToaster(this, 'No results.', 'warning');
+    }, [])
 
     const getData = useCallback(() => {
+        showToaster(this, 'Searching...', 'info');
         const searchUrl = new URL('https://www.thecocktaildb.com/api/json/v1/1/search.php');
         const param = { s: searchTerm };
         searchUrl.search = new URLSearchParams(param).toString();
@@ -43,6 +46,10 @@ function Searchbar() {
 
             input {
                 width: 70%;
+            }
+
+            button {
+                cursor: pointer;
             }
         </style>
     `;

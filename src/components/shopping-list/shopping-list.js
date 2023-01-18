@@ -7,17 +7,20 @@ import {
 import "./components/searchbar.js";
 import "./components/item-list.js";
 import "./components/ingredient-list.js";
+import { showToaster } from '../toaster/toaster.js';
 
-const ShoppingList = () => {
+function ShoppingList() {
     const [data, setData] = useState();
     const [selectedDrinks, setSelectedDrinks] = useState([]);
 
     const addItem = useCallback(({ detail: idDrink }) => {
         setSelectedDrinks(prev => prev.concat(idDrink));
+        showToaster(this, 'Ingredients added to shopping list.');
     }, [])
 
     const removeItem = useCallback(({ detail: idDrink }) => {
         setSelectedDrinks(prev => prev.filter(ele => ele !== idDrink));
+        showToaster(this, 'Ingredient removed from shopping list.');
     }, [])
 
     return html`
