@@ -2,7 +2,7 @@ import {
     html,
     component,
     useMemo,
-} from 'https://esm.sh/haunted';
+} from "../../../node_modules/haunted/haunted.js";
 
 function Toaster({ toasterList }) {
     const toastList = useMemo(() => toasterList.map(ele => html`
@@ -28,6 +28,7 @@ function Toaster({ toasterList }) {
                 background-color: green;
                 color: white;
                 margin-bottom: 10px;
+                animation: fadein 0.25s;
             }
 
             .toaster.info {
@@ -36,6 +37,11 @@ function Toaster({ toasterList }) {
 
             .toaster.warning {
                 background-color: red;
+            }
+
+            @keyframes fadein {
+                from {bottom: 0; opacity: 0;}
+                to {bottom: 30px; opacity: 1;}
             }
         </style>
     `;

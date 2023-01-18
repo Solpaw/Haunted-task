@@ -1,7 +1,4 @@
-import {
-    html,
-    component,
-} from 'https://esm.sh/haunted'
+import { html, component } from "../../../node_modules/haunted/haunted.js";
 
 const AppHeader = () => {
     return html`

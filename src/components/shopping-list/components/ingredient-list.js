@@ -3,7 +3,7 @@ import {
     component,
     useCallback,
     useMemo,
-} from 'https://esm.sh/haunted';
+} from "../../../../node_modules/haunted/haunted.js";
 
 function IngredientList({ data, selectedList }) {
     const ingredients = useMemo(() => {

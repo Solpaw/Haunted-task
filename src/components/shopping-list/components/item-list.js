@@ -3,7 +3,7 @@ import {
     component,
     useMemo,
     useCallback
-} from 'https://esm.sh/haunted';
+} from "../../../../node_modules/haunted/haunted.js";
 
 function ItemList({ data, selectedList }) {
     const addItem = useCallback((data) => {

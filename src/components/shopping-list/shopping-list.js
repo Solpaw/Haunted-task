@@ -3,7 +3,7 @@ import {
     component,
     useCallback,
     useState,
-} from 'https://esm.sh/haunted';
+} from "../../../node_modules/haunted/haunted.js";
 import "./components/searchbar.js";
 import "./components/item-list.js";
 import "./components/ingredient-list.js";

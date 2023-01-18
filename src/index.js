@@ -4,7 +4,7 @@ import {
     useEffect,
     useCallback,
     useState
-} from 'https://esm.sh/haunted'
+} from "../../../node_modules/haunted/haunted.js";
 import "./components/header/app-header.js";
 import "./components/shopping-list/shopping-list.js";
   

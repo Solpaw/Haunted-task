@@ -3,7 +3,7 @@ import {
     component,
     useState,
     useCallback,
-} from 'https://esm.sh/haunted';
+} from "../../../../node_modules/haunted/haunted.js";
 import { showToaster } from '../../toaster/toaster.js';
 
 function Searchbar() {
